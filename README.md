@@ -1,2 +1,2 @@
 # Personal Website
-Personal Website using `nuxt`
+Personal Website using `vuepress`
