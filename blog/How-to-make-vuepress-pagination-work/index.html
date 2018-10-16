@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>How to make vuepress pagination work | Xinyi Tao</title>
+    <meta name="description" content="An rough approach to make @vuepress/plugin-pagination work in default theme.">
+    <link rel="icon" href="/favicon.ico">
+    
+    <link rel="preload" href="/assets/css/styles.b8154e08.css" as="style"><link rel="preload" href="/assets/js/app.b8154e08.js" as="script"><link rel="preload" href="/assets/css/15.styles.b0bb3db3.css" as="style"><link rel="preload" href="/assets/js/15.b0bb3db3.js" as="script"><link rel="preload" href="/assets/js/10.c59d91e4.js" as="script"><link rel="preload" href="/assets/css/5.styles.5cdcb64b.css" as="style"><link rel="preload" href="/assets/js/5.5cdcb64b.js" as="script"><link rel="preload" href="/assets/css/6.styles.0505e7f3.css" as="style"><link rel="preload" href="/assets/js/6.0505e7f3.js" as="script"><link rel="prefetch" href="/assets/css/1.styles.3256ca5f.css"><link rel="prefetch" href="/assets/js/1.3256ca5f.js"><link rel="prefetch" href="/assets/css/2.styles.b3eeb33b.css"><link rel="prefetch" href="/assets/js/2.b3eeb33b.js"><link rel="prefetch" href="/assets/css/3.styles.8d032b19.css"><link rel="prefetch" href="/assets/js/3.8d032b19.js"><link rel="prefetch" href="/assets/css/4.styles.c060e532.css"><link rel="prefetch" href="/assets/js/4.c060e532.js"><link rel="prefetch" href="/assets/js/7.2b95ae2a.js"><link rel="prefetch" href="/assets/css/8.styles.3f0fdd1e.css"><link rel="prefetch" href="/assets/js/8.3f0fdd1e.js"><link rel="prefetch" href="/assets/css/9.styles.662dff4c.css"><link rel="prefetch" href="/assets/js/9.662dff4c.js"><link rel="prefetch" href="/assets/js/11.5181ff27.js"><link rel="prefetch" href="/assets/js/12.1f9cf6c5.js"><link rel="prefetch" href="/assets/js/13.f9b8ae3f.js"><link rel="prefetch" href="/assets/js/14.607239d6.js">
+    <link rel="stylesheet" href="/assets/css/6.styles.0505e7f3.css"><link rel="stylesheet" href="/assets/css/styles.b8154e08.css"><link rel="stylesheet" href="/assets/css/1.styles.3256ca5f.css"><link rel="stylesheet" href="/assets/css/2.styles.b3eeb33b.css"><link rel="stylesheet" href="/assets/css/3.styles.8d032b19.css"><link rel="stylesheet" href="/assets/css/4.styles.c060e532.css"><link rel="stylesheet" href="/assets/css/5.styles.5cdcb64b.css"><link rel="stylesheet" href="/assets/css/8.styles.3f0fdd1e.css"><link rel="stylesheet" href="/assets/css/9.styles.662dff4c.css"><link rel="stylesheet" href="/assets/css/15.styles.b0bb3db3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Xinyi Tao</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">Blog</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">Blog</a></div> <!----></nav>  <!----> </div> <!----> <div class="page"> <div class="content"><h1 id="how-to-make-vuepress-pagination-work"><a href="#how-to-make-vuepress-pagination-work" aria-hidden="true" class="header-anchor">#</a> How to make vuepress pagination work</h1> <div data-v-109f596b>2018/10/16 16:02:20</div> <div style="margin:10px 0;" data-v-79227c5c><a href="/tags.html#vuepress" data-v-79227c5c><span class="category-tag" data-v-79227c5c>vuepress</span></a></div> <p>An rough approach to make @vuepress/plugin-pagination work in default theme.</p> <h2 id="install"><a href="#install" aria-hidden="true" class="header-anchor">#</a> Install</h2> <div class="language- extra-class"><pre class="language-text"><code>npm install @vuepress/plugin-pagination@1.0.0-alpha.10
+</code></pre></div><h2 id="modify"><a href="#modify" aria-hidden="true" class="header-anchor">#</a> Modify</h2> <ul><li><p>In <code>node_modules/@vuepress/plugin-pagination/index.js</code></p> <p>change:</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> <span class="token punctuation">{</span>
+  perPagePosts <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  paginationDir <span class="token operator">=</span> <span class="token string">'page'</span><span class="token punctuation">,</span>
+  firstPagePath <span class="token operator">=</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+  layout <span class="token operator">=</span> <span class="token string">'Layout'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token operator">=</span> options
+<span class="token keyword">const</span> intervallers <span class="token operator">=</span> <span class="token function">getIntervallers</span><span class="token punctuation">(</span>posts<span class="token punctuation">.</span>length<span class="token punctuation">,</span> perPagePosts<span class="token punctuation">)</span>
+<span class="token operator">...</span>
+ctx<span class="token punctuation">.</span><span class="token function">addPage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    permalink<span class="token punctuation">:</span> path<span class="token punctuation">,</span>
+    frontmatter<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      layout<span class="token punctuation">,</span>
+      title<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`Page </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>to</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> <span class="token punctuation">{</span>
+  perPagePosts <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  paginationDir <span class="token operator">=</span> <span class="token string">'page'</span><span class="token punctuation">,</span>
+  firstPagePath <span class="token operator">=</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+  layout <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  pageLayout <span class="token operator">=</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span> <span class="token operator">=</span> options
+<span class="token keyword">const</span> intervallers <span class="token operator">=</span> <span class="token function">getIntervallers</span><span class="token punctuation">(</span>posts<span class="token punctuation">.</span>length<span class="token punctuation">,</span> perPagePosts<span class="token punctuation">)</span>
+<span class="token operator">...</span>
+ctx<span class="token punctuation">.</span><span class="token function">addPage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    permalink<span class="token punctuation">:</span> path<span class="token punctuation">,</span>
+    frontmatter<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      layout<span class="token punctuation">:</span> layout<span class="token punctuation">,</span> 
+      pageLayout<span class="token punctuation">:</span> pageLayout<span class="token punctuation">,</span>
+      title<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`Page </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>In <code>node_modules/@vuepress/theme-default/layouts/Layout.vue</code>
+add</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span> <span class="token attr-name">:is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>$page.frontmatter.pageLayout<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>$page.frontmatter.pageLayout<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre></div><p>like the following</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>custom-layout<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>$page.frontmatter.layout<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span> <span class="token attr-name">:is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>$page.frontmatter.layout<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>$page.frontmatter.layout<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span> <span class="token attr-name">:is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>$page.frontmatter.pageLayout<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>$page.frontmatter.pageLayout<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Home</span> <span class="token attr-name">v-else-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>$page.frontmatter.home<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre></div></li></ul> <p>In these case, we add a new attribute <code>pageLayout</code> as the template for all pagination pages instead of using <code>layout</code> without sacrificing losing the overall theme.</p> <h2 id="config"><a href="#config" aria-hidden="true" class="header-anchor">#</a> Config</h2> <p>In <code>./vuepress/config.js</code></p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>plugins<span class="token punctuation">:</span> 
+    <span class="token punctuation">[</span><span class="token string">'@vuepress/pagination'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        paginationDir<span class="token punctuation">:</span> <span class="token string">'blog/page'</span><span class="token punctuation">,</span><span class="token comment">//your page will be /blog/page/2/,/blog/page/3/...</span>
+        firstPagePath<span class="token punctuation">:</span> <span class="token string">'/blog/'</span><span class="token punctuation">,</span> <span class="token comment">//the first page will be /blog/</span>
+        perPagePosts<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+        pageLayout<span class="token punctuation">:</span><span class="token string">&quot;PageLayout&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+</code></pre></div><p>Then we should create <code>PageLayout.vue</code> in <code>./vuepress/components</code></p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>content<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!--
+	Do whatever you like
+	--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+    <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+        name<span class="token punctuation">:</span> <span class="token string">&quot;PageLayout&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>That's it!</p></div> <div class="page-edit"><!----> <!----></div> <!----> </div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/15.b0bb3db3.js" defer></script><script src="/assets/js/10.c59d91e4.js" defer></script><script src="/assets/js/5.5cdcb64b.js" defer></script><script src="/assets/js/6.0505e7f3.js" defer></script><script src="/assets/js/app.b8154e08.js" defer></script>
+  </body>
+</html>
