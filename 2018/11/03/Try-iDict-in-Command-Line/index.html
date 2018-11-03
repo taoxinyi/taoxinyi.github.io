@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Try iDict in Command Line - Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="command line version of iDict for macOs&amp;amp;Windows&amp;amp;Linux">
+<meta name="keywords" content="iDict">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Try iDict in Command Line">
+<meta property="og:url" content="https://xinyitao.tech/2018/11/03/Try-iDict-in-Command-Line/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="command line version of iDict for macOs&amp;amp;Windows&amp;amp;Linux">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.shields.io/github/release/AntiSomnus/iDict-cmd.svg">
+<meta property="og:image" content="https://xinyitao.tech/image/Try-iDict-in-Command-Line/macos_detail.png">
+<meta property="og:image" content="https://xinyitao.tech/image/Try-iDict-in-Command-Line/windows_brief.png">
+<meta property="og:image" content="https://xinyitao.tech/image/Try-iDict-in-Command-Line/linux_detail.png">
+<meta property="og:image" content="https://xinyitao.tech/image/Try-iDict-in-Command-Line/windows_detail.png">
+<meta property="og:updated_time" content="2018-11-03T09:05:37.497Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Try iDict in Command Line">
+<meta name="twitter:description" content="command line version of iDict for macOs&amp;amp;Windows&amp;amp;Linux">
+<meta name="twitter:image" content="https://img.shields.io/github/release/AntiSomnus/iDict-cmd.svg">
+
+
+
+
+
+<link rel="icon" href="/image/favicon.ico">
+
+<link rel="stylesheet" href="/fontawesome-free-5.5.0-web/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+    
+
+    
+    
+    
+    <style>body>.navbar,body>.section,body>.footer{opacity: 0}</style>
+    
+
+    
+    
+    
+    
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127387706-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-127387706-1');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+<style>
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.pace-inactive {
+  display: none;
+}
+
+.pace .pace-progress {
+  background: #3273dc;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 2px;
+}
+</style>
+
+    
+
+
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center" style="display: none">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/image/Try-iDict-in-Command-Line/thumbnail.png" alt="Try iDict in Command Line">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-11-03T07:58:09.000Z">2018-11-03</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Idict/">Idict</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Idict/cmd/">cmd</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 minutes read (About 767 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Try iDict in Command Line
+            
+        </h1>
+        <div class="content">
+            <p><img src="https://img.shields.io/github/release/AntiSomnus/iDict-cmd.svg"></p>
+<p>command line version of iDict for macOs&amp;Windows&amp;Linux</p>
+<p><img src="/image/Try-iDict-in-Command-Line/macos_detail.png" alt="" title="macos_detail"><br><a id="more"></a><br>适用macOs, Windows(64位)和Linux的命令行版本iDict英语词典,包含330W词库以及来自权威词典的双语例句。</p>
+<p>轻量级,包含所有依赖的可执行文件,下载即用。</p>
+<p>同时推荐<a href="https://github.com/AntiSomnus/iDict-weapp" target="_blank" rel="noopener">微信小程序</a>版本，在移动端获取极佳体验</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>请去<a href="https://github.com/AntiSomnus/iDict-cmd/releases/latest" target="_blank" rel="noopener">Release</a>页面下载对应的可执行文件</p>
+<ul>
+<li><p>Linux</p>
+<ol>
+<li><p><code>wget https://github.com/AntiSomnus/iDict-cmd/releases/download/[latest-release-number]/idict_linux &amp;&amp; chmod a+x idict_linux</code></p>
+<p> Make sure to change [latest-release-number] to the number of release, e.g <code>2.0</code></p>
+<p> Or you can just go to <a href="https://github.com/AntiSomnus/iDict-cmd/releases/latest" target="_blank" rel="noopener">Release</a> page to download the latest version.</p>
+</li>
+<li><p>add the location to the path</p>
+<p> <code>ln -s /location/to/idict_linux /usr/local/bin/idict</code></p>
+</li>
+<li><code>idict welcome</code> <code>idict welcome -d</code> <code>idict welcome -d 3</code></li>
+</ol>
+</li>
+<li><p>Windows</p>
+<ol>
+<li>Just go to <a href="https://github.com/AntiSomnus/iDict-cmd/releases/latest" target="_blank" rel="noopener">Release</a> page to download the latest version.</li>
+<li>add the location to the path</li>
+<li><code>idict welcome</code> <code>idict welcome -d</code> <code>idict welcome -d 3</code></li>
+</ol>
+</li>
+<li><p>macOs</p>
+<p>  macOs上使用需要brew安装openssl</p>
+<ol>
+<li><p><code>wget https://github.com/AntiSomnus/iDict-cmd/releases/download/[latest-release-number]/idict_macos &amp;&amp; chmod a+x idict_macos</code></p>
+<p> Make sure to change [latest-release-number] to the number of release, e.g <code>2.0</code></p>
+<p> Or you can just go to <a href="https://github.com/AntiSomnus/iDict-cmd/releases/latest" target="_blank" rel="noopener">Release</a> page to download the latest version.</p>
+</li>
+<li><p>make sure you have <code>openssl</code> installed</p>
+<p> <code>brew install openssl</code></p>
+</li>
+<li><p>add the location to the path</p>
+<p> <code>ln -s /location/to/idict_macos /usr/local/bin/idict</code></p>
+</li>
+<li><code>idict welcome</code> <code>idict welcome -d</code> <code>idict welcome -d 3</code></li>
+</ol>
+</li>
+</ul>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight plain hljs"><table><tr><td class="code"><pre><span class="line">idict word [-d|--detail [max-sentences-per-dict] ]</span><br><span class="line">word            the word you want to query            你想要查询的单词,默认不包含例句</span><br><span class="line">-d | --detail   get the detailed info of the word     获取单词详细释义，包含例句</span><br><span class="line">                max-sentences-per-dict(default=2)     显示的例句数量，默认为2</span><br></pre></td></tr></table></figure>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight plain hljs"><table><tr><td class="code"><pre><span class="line">idict welcome</span><br><span class="line">idict welcome -d</span><br><span class="line">idict welcome -d 1</span><br></pre></td></tr></table></figure>
+<p><img src="/image/Try-iDict-in-Command-Line/windows_brief.png" alt="windows brief" title="windows brief"></p>
+<p><img src="/image/Try-iDict-in-Command-Line/linux_detail.png" alt="linux detail" title="linux detail"></p>
+<p><img src="/image/Try-iDict-in-Command-Line/windows_detail.png" alt="windows detail" title="windows detail"></p>
+<h2 id="Color-Beta-in-win64-python-version"><a href="#Color-Beta-in-win64-python-version" class="headerlink" title="Color (Beta in win64_python version)"></a>Color (Beta in win64_python version)</h2><p>修改<code>color.ini</code>即可修改颜色</p>
+<p>New python version will give you the flexibility to change color configuration.</p>
+<p>Just change the <code>color.ini</code> in the folder of <code>win64_python</code> Release</p>
+<p>The color table is below<br><figure class="highlight ini hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-attr">BLACK</span>           = <span class="hljs-number">30</span></span><br><span class="line"><span class="hljs-attr">RED</span>             = <span class="hljs-number">31</span></span><br><span class="line"><span class="hljs-attr">GREEN</span>           = <span class="hljs-number">32</span></span><br><span class="line"><span class="hljs-attr">YELLOW</span>          = <span class="hljs-number">33</span></span><br><span class="line"><span class="hljs-attr">BLUE</span>            = <span class="hljs-number">34</span></span><br><span class="line"><span class="hljs-attr">MAGENTA</span>         = <span class="hljs-number">35</span></span><br><span class="line"><span class="hljs-attr">CYAN</span>            = <span class="hljs-number">36</span></span><br><span class="line"><span class="hljs-attr">WHITE</span>           = <span class="hljs-number">37</span></span><br><span class="line"><span class="hljs-attr">RESET</span>           = <span class="hljs-number">39</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">LIGHTBLACK</span>      = <span class="hljs-number">90</span></span><br><span class="line"><span class="hljs-attr">LIGHTRED</span>        = <span class="hljs-number">91</span></span><br><span class="line"><span class="hljs-attr">LIGHTGREEN</span>      = <span class="hljs-number">92</span></span><br><span class="line"><span class="hljs-attr">LIGHTYELLOW</span>     = <span class="hljs-number">93</span></span><br><span class="line"><span class="hljs-attr">LIGHTBLUE</span>       = <span class="hljs-number">94</span></span><br><span class="line"><span class="hljs-attr">LIGHTMAGENTA</span>    = <span class="hljs-number">95</span></span><br><span class="line"><span class="hljs-attr">LIGHTCYAN</span>       = <span class="hljs-number">96</span></span><br><span class="line"><span class="hljs-attr">LIGHTWHITE</span>      = <span class="hljs-number">97</span></span><br></pre></td></tr></table></figure></p>
+<p>default color configuration is<br><figure class="highlight ini hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-section">[COLOR]</span></span><br><span class="line"><span class="hljs-attr">word_color</span> = <span class="hljs-number">91</span></span><br><span class="line"><span class="hljs-attr">section_color</span> = <span class="hljs-number">92</span></span><br><span class="line"><span class="hljs-attr">hint_color</span> = <span class="hljs-number">93</span></span><br><span class="line"><span class="hljs-attr">text_color</span> = <span class="hljs-number">97</span></span><br><span class="line"><span class="hljs-attr">source_color</span> = <span class="hljs-number">90</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Sentences-from-news-Beta-in-win64-python-version"><a href="#Sentences-from-news-Beta-in-win64-python-version" class="headerlink" title="Sentences from news (Beta in win64_python version)"></a>Sentences from news (Beta in win64_python version)</h2><p>可以获得来自国外权威新闻媒体对于该单词的用法，在<code>win64_python</code>版本中使用<code>-n</code>即可开启，如<code>idict test -n</code>或<code>idict test -n -d</code></p>
+<p>New feature that provides sentences from news by the api of <code>vocabulary.com</code></p>
+<h2 id="Compile-on-your-own"><a href="#Compile-on-your-own" class="headerlink" title="Compile on your own"></a>Compile on your own</h2><ul>
+<li><p>Linux</p>
+  <figure class="highlight console hljs"><table><tr><td class="code"><pre><span class="line">g++ -Os -s -m64 -std=c++14 idict_linux.cpp -o idict -Wl,-static -lssl -lcrypto -Wl,-Bdynamic -ldl</span><br></pre></td></tr></table></figure>
+<p>  if you have the error of <code>undefined reference to &#39;pthread_getspecific&#39;</code>, you might need to add <code>-pthread</code></p>
+  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">g++ -Os -s -m64 -std=c++14 idict_linux.cpp -o idict -Wl,-static -lssl -lcrypto -Wl,-Bdynamic -ldl -pthread</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Windows</p>
+  <figure class="highlight console hljs"><table><tr><td class="code"><pre><span class="line">g++ idict_win.cpp -o idict -Os -s -m64 -std=c++14 -static-libgcc -static-libstdc++ -Wl,-Bstatic,--whole-archive -lwinpthread -Wl,--no-whole-archive -Wl,-Bstatic -lssl -lcrypto -Wl,-Bdynamic -lws2_32</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>macOs<br>  In order to use it properly, you must install openssl from brew first.</p>
+<ol>
+<li><p><code>brew install openssl</code></p>
+</li>
+<li><p>For compilers to find openssl you <strong>must</strong> set:</p>
+ <figure class="highlight console hljs"><table><tr><td class="code"><pre><span class="line">export LD_LIBRARY_PATH=/usr/local/opt/openssl/lib:"$&#123;LD_LIBRARY_PATH&#125;"</span><br><span class="line">export CPATH=/usr/local/opt/openssl/include:"$&#123;CPATH&#125;"</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>https://github.com/AntiSomnus/iDict-cmd.git</code></p>
+</li>
+<li><code>cd iDict-cmd</code></li>
+<li>Compile <figure class="highlight console hljs"><table><tr><td class="code"><pre><span class="line">g++ -Os -m64 -std=c++14 idict_linux.cpp -o idict -lssl -lcrypto</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/iDict/">iDict</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/11/03/An-Introduction-to-iDict-Weapp/">
+                <span class="level-item">Introduction of iDict-weapp</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/image/avatar.jpg">
+                    
+                    <p class="is-size-4 is-block">
+                        Xinyi Tao
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Developer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Shanghai Jiao Tong University</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        2
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tag
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        1
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/taoxinyi">
+                Follow</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/taoxinyi">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="http://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="http://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="http://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Idict/">
+            <span class="level-start">
+                <span class="level-item">Idict</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Idict/Weapp/">
+            <span class="level-start">
+                <span class="level-item">Weapp</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Idict/cmd/">
+            <span class="level-start">
+                <span class="level-item">cmd</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="card card-transparent is-hidden-widescreen">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2018/11/03/Try-iDict-in-Command-Line/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/image/Try-iDict-in-Command-Line/thumbnail.png" alt="Try iDict in Command Line">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-03T07:58:09.000Z">2018-11-03</time></div>
+                    <a href="/2018/11/03/Try-iDict-in-Command-Line/" class="has-link-black-ter is-size-6">Try iDict in Command Line</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Idict/">Idict</a> / <a class="has-link-grey -link" href="/categories/Idict/cmd/">cmd</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/11/03/An-Introduction-to-iDict-Weapp/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/image/An-Introduction-to-IDict-Weapp/thumbnail.png" alt="Introduction of iDict-weapp">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-03T06:36:06.554Z">2018-11-03</time></div>
+                    <a href="/2018/11/03/An-Introduction-to-iDict-Weapp/" class="has-link-black-ter is-size-6">Introduction of iDict-weapp</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Idict/">Idict</a> / <a class="has-link-grey -link" href="/categories/Idict/Weapp/">Weapp</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/iDict/">
+                        <span class="level-start">
+                            <span class="level-item">iDict</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2018/11/03/Try-iDict-in-Command-Line/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/image/Try-iDict-in-Command-Line/thumbnail.png" alt="Try iDict in Command Line">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-03T07:58:09.000Z">2018-11-03</time></div>
+                    <a href="/2018/11/03/Try-iDict-in-Command-Line/" class="has-link-black-ter is-size-6">Try iDict in Command Line</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Idict/">Idict</a> / <a class="has-link-grey -link" href="/categories/Idict/cmd/">cmd</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/11/03/An-Introduction-to-iDict-Weapp/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/image/An-Introduction-to-IDict-Weapp/thumbnail.png" alt="Introduction of iDict-weapp">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-03T06:36:06.554Z">2018-11-03</time></div>
+                    <a href="/2018/11/03/An-Introduction-to-iDict-Weapp/" class="has-link-black-ter is-size-6">Introduction of iDict-weapp</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Idict/">Idict</a> / <a class="has-link-grey -link" href="/categories/Idict/Weapp/">Weapp</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/iDict/">
+                        <span class="level-start">
+                            <span class="level-item">iDict</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2018 Xinyi Tao&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                </p>
+            </div>
+            <div class="level-end">
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+    <script>
+        (function ($) {
+            $(document).ready(function () {
+                if (typeof($.fn.lightGallery) === 'function') {
+                    $('.article').lightGallery({ selector: '.gallery-item' });
+                }
+                if (typeof($.fn.justifiedGallery) === 'function') {
+                    $('.justified-gallery').justifiedGallery();
+                }
+            });
+        })(jQuery);
+    </script>
+    
+
+    
+    
+    
+    <div id="outdated">
+        <h6>Your browser is out-of-date!</h6>
+        <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+        <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // plugin function, place inside DOM ready function
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'flex'
+            })
+        });
+    </script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/animejs@2.2.0/anime.js"></script>
+    <script>
+    function isIE() {
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf('MSIE ');
+        var trident = ua.indexOf('Trident/');
+        return (msie > 0 || trident > 0);
+    }
+
+    $(document).ready(function () {
+        $('body>.navbar,body>.section,body>.footer').css('opacity', 1);
+        if (!isIE()) {
+            ['.column-main > .card',
+             '.column-left > .card',
+             '.column-right > .card'].map(function(target) {
+                anime({
+                    targets: target,
+                    scale: [0.8, 1],
+                    opacity: [0, 1],
+                    duration: 300,
+                    easing: 'easeOutSine',
+                    delay: function(el, i, l) {
+                        return i * 100;
+                    }
+                })
+            });
+
+            anime({
+                targets: '.navbar-main',
+                translateY: [-100, 0],
+                opacity: [0, 1],
+                duration: 300,
+                easing: 'easeOutSine'
+            });
+        }
+    });
+    </script>
+    
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<style>
+#back-to-top {
+    position: fixed;
+    padding: 8px 0;
+    transition: 0.4s ease opacity, 0.4s ease width, 0.4s ease transform, 0.4s ease border-radius;
+    opacity: 0;
+    line-height: 24px;
+    outline: none;
+    transform: translateY(120px);
+}
+#back-to-top.fade-in {
+    opacity: 1;
+}
+#back-to-top.rise-up {
+    transform: translateY(0);
+}
+</style>
+<script src="/js/back-to-top.js"></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
