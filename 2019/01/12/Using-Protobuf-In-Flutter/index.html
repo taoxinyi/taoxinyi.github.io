@@ -2,22 +2,23 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Categories - Blog</title>
+<title>Tutorial - Using Protobuf in Flutter - Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Personal website for Xinyi Tao">
-<meta name="keywords" content="iDict,Protobuf">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="https://xinyitao.tech/categories/index.html">
+    <meta name="description" content="Recently, I have working on Futter project. However, I have found it quite difficult to install the Dart protobuf plugin on Linux. Here is my tutorial for you to save your time.">
+<meta name="keywords" content="Protobuf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tutorial - Using Protobuf in Flutter">
+<meta property="og:url" content="https://xinyitao.tech/2019/01/12/Using-Protobuf-In-Flutter/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="Personal website for Xinyi Tao">
+<meta property="og:description" content="Recently, I have working on Futter project. However, I have found it quite difficult to install the Dart protobuf plugin on Linux. Here is my tutorial for you to save your time.">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-01-12T07:42:00.431Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
-<meta name="twitter:description" content="Personal website for Xinyi Tao">
+<meta name="twitter:title" content="Tutorial - Using Protobuf in Flutter">
+<meta name="twitter:description" content="Recently, I have working on Futter project. However, I have found it quite difficult to install the Dart protobuf plugin on Linux. Here is my tutorial for you to save your time.">
 
 
 
@@ -126,7 +127,7 @@
                 
                 <a class="navbar-item" href="/archives">Archives</a>
                 
-                <a class="navbar-item is-active" href="/categories">Categories</a>
+                <a class="navbar-item" href="/categories">Categories</a>
                 
                 <a class="navbar-item" href="/tags">Tags</a>
                 
@@ -149,59 +150,124 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Categories
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/Flutter/">
-            <span class="level-start">
-                <span class="level-item">Flutter</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/Flutter/Protobuf/">
-            <span class="level-start">
-                <span class="level-item">Protobuf</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li></ul></li><li>
-        <a class="level is-marginless" href="/categories/iDict/">
-            <span class="level-start">
-                <span class="level-item">iDict</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/iDict/Weapp/">
-            <span class="level-start">
-                <span class="level-item">Weapp</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/iDict/cmd/">
-            <span class="level-start">
-                <span class="level-item">cmd</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li></ul></li>
-            </ul>
-        </div>
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/image/Using-Protobuf-In-Flutter/thumbnail.png" alt="Tutorial - Using Protobuf in Flutter">
+        </span>
     </div>
-</div></div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-01-12T05:24:11.000Z">2019-01-12</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Flutter/Protobuf/">Protobuf</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes read (About 384 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Tutorial - Using Protobuf in Flutter
+            
+        </h1>
+        <div class="content">
+            <p>Recently, I have working on Futter project. However, I have found it quite difficult to install the Dart protobuf plugin on Linux. Here is my tutorial for you to save your time.<br><a id="more"></a></p>
+<ol>
+<li><p>Install Dart</p>
+<p>Following the instruction here to install Dart</p>
+<p><a href="https://www.dartlang.org/tools/sdk" target="_blank" rel="noopener">Dart SDK</a></p>
+<p>For me, I just download the <code>deb</code> file and install it.</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">sudo dpkg -i dart_2.1.0-1_amd64.deb</span><br></pre></td></tr></table></figure>
+<p>After that we can use <code>dart</code> in terminal, but we cannot find <code>pub</code> . The reason is beacuse it is located in <code>usr/lib/dart/bin</code> Therefore, we’d better change the PATH permanently.</p>
+</li>
+</ol>
+<ol start="2">
+<li><p>Change the PATH permanently for <code>pub</code></p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">gedit ~/.profile</span><br></pre></td></tr></table></figure>
+<p>Then add the following to the end of <code>.profile</code></p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/usr/lib/dart/bin</span><br></pre></td></tr></table></figure>
+<p>Logout and login again to let the modification take effect. Type <code>pub</code> in terminal, we will see it works.</p>
+</li>
+</ol>
+<ol start="3">
+<li><p>Install <code>protoc</code></p>
+<p>The simplest way is to use to precompiled <code>protoc</code> binary and put it into <code>PATH</code></p>
+<p><a href="https://github.com/protocolbuffers/protobuf/releases" target="_blank" rel="noopener">Protobuf Release</a></p>
+<p>For me, I download the <code>protoc-3.6.1-osx-x86_64.zip</code>. Unzip it, and put <code>protoc</code> binary to <code>/usr/bin</code></p>
+<p>Then, we type <code>protoc</code> in terminal, we will see it works.</p>
+</li>
+</ol>
+<ol start="4">
+<li><p>Install Dart <code>protoc_plugin</code></p>
+<p>In the terminal, type</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">pub global activate protoc_plugin</span><br></pre></td></tr></table></figure>
+<p>Right now, I’m in China. For reasons known to all, I have to use the mirror</p>
+<p><code>export PUB_HOSTED_URL=https://pub.flutter-io.cn</code></p>
+<p>However, it is installed in <code>$HOME/.pub-cache/bin</code>. We’d better make it into <code>PATH</code> again.</p>
+<p>Using the same way in <code>~/.profile</code></p>
+<p>Now, the last line looks like</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/usr/lib/dart/bin:<span class="hljs-variable">$HOME</span>/.pub-cache/bin</span><br></pre></td></tr></table></figure>
+<p>You need to logout and login to again to take effect.</p>
+</li>
+</ol>
+<ol start="5">
+<li><p>Compile from <code>.proto</code> file</p>
+<p>Finally, we can compile <code>.proto</code> file to <code>.dart</code> file.</p>
+<p>For me, I just go to the directory containing the <code>.proto</code> file, using the command below, and it will generate the <code>.dart</code> file(s) you need. You can copy them to your <code>flutter</code> project</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">protc --dart_out=. ./YourFile.proto</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Install protobuf runtime library</p>
+<p>Don’t forget to install the runtime library by adding <code>protobuf: ^0.11.0</code> in your <code>dependency</code> part of <code>pubspec.yaml</code></p>
+</li>
+</ol>
+<p>That’s it! Hope it will save your time to build your flutter project with awesome protobuf!</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Protobuf/">Protobuf</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/11/03/Try-iDict-in-Command-Line/">
+                <span class="level-item">Try iDict in Command Line</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
                 
 
 
