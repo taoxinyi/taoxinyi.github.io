@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xinyitao.tech/about/index.html</loc>
+    <loc>https://xinyitao.tech/2019/01/12/Using-Protobuf-In-Flutter/</loc>
     
-    <lastmod>2018-11-03T12:33:20.036Z</lastmod>
+    <lastmod>2019-01-12T07:42:00.431Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://xinyitao.tech/2018/11/03/Try-iDict-in-Command-Line/</loc>
     
-    <lastmod>2018-11-03T09:05:37.497Z</lastmod>
+    <lastmod>2019-01-12T07:40:36.768Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://xinyitao.tech/2018/11/03/An-Introduction-to-iDict-Weapp/</loc>
     
-    <lastmod>2018-11-03T08:03:13.091Z</lastmod>
+    <lastmod>2019-01-12T07:40:09.377Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xinyitao.tech/about/index.html</loc>
+    
+    <lastmod>2018-11-03T12:33:20.036Z</lastmod>
     
   </url>
   
