@@ -2,21 +2,23 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: Protobuf - Blog</title>
+<title>Tutorial - Get Ready to Use IPFS Cluster - Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Personal website for Xinyi Tao">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="https://xinyitao.tech/tags/Protobuf/index.html">
+    <meta name="description" content="IPFS has become one of the most popular ways to store your data in a decentralized way. This tutorial will demonstrate the basic usage of ipfs, ipfs-cluster and how to access it via axios in JavaScrip">
+<meta name="keywords" content="IPFS,Decentralized">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tutorial - Get Ready to Use IPFS Cluster">
+<meta property="og:url" content="https://xinyitao.tech/2019/03/03/Get-Ready-to-Use-IPFS-Cluster/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="Personal website for Xinyi Tao">
+<meta property="og:description" content="IPFS has become one of the most popular ways to store your data in a decentralized way. This tutorial will demonstrate the basic usage of ipfs, ipfs-cluster and how to access it via axios in JavaScrip">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-03-03T08:44:28.608Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
-<meta name="twitter:description" content="Personal website for Xinyi Tao">
+<meta name="twitter:title" content="Tutorial - Get Ready to Use IPFS Cluster">
+<meta name="twitter:description" content="IPFS has become one of the most popular ways to store your data in a decentralized way. This tutorial will demonstrate the basic usage of ipfs, ipfs-cluster and how to access it via axios in JavaScrip">
 
 
 
@@ -151,39 +153,28 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">Protobuf</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-image">
-        <a href="/2019/01/12/Using-Protobuf-In-Flutter/" class="image is-7by1">
-            <img class="thumbnail" src="/image/Using-Protobuf-In-Flutter/thumbnail.png" alt="Tutorial - Using Protobuf in Flutter">
-        </a>
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/image/Get-Ready-to-Use-IPFS-Cluster/thumbnail.png" alt="Tutorial - Get Ready to Use IPFS Cluster">
+        </span>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-12T05:24:11.000Z">2019-01-12</time>
+                <time class="level-item has-text-grey" datetime="2019-03-03T07:58:35.000Z">2019-03-03</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Flutter/Protobuf/">Protobuf</a>
+                <a class="has-link-grey -link" href="/categories/IPFS/">IPFS</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 384 words)
+                    3 minutes read (About 456 words)
                 </span>
                 
             </div>
@@ -191,28 +182,106 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/01/12/Using-Protobuf-In-Flutter/">Tutorial - Using Protobuf in Flutter</a>
+                Tutorial - Get Ready to Use IPFS Cluster
             
         </h1>
         <div class="content">
-            <p>Recently, I have working on Futter project. However, I have found it quite difficult to install the Dart protobuf plugin on Linux. Here is my tutorial for you to save your time.<br></p>
+            <p>IPFS has become one of the most popular ways to store your data in a decentralized way. This tutorial will demonstrate the basic usage of <code>ipfs</code>, <code>ipfs-cluster</code> and how to access it via <code>axios</code> in JavaScript.<br><a id="more"></a></p>
+<h2 id="Perquisites"><a href="#Perquisites" class="headerlink" title="Perquisites"></a>Perquisites</h2><ul>
+<li><p>Download <code>ipfs</code>,<code>ipfs-cluster-service</code> on all of your servers and <code>ipfs-cluster-ctl</code> on at least one of your servers on <a href="https://dist.ipfs.io/" target="_blank" rel="noopener">IPFS distributions</a>.  For me, I download them on all of my servers.</p>
+</li>
+<li><p>Make them into PATH like</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ln * /usr/bin &amp;&amp; chmod a+x *</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>make sure the following port is accessible on your server</p>
+<ul>
+<li>8080 (ipfs get file)</li>
+<li>9094 (ipfs cluster service RESTful API)</li>
+<li>9096 (ipfs cluster service peer commuication)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>The following steps should be done on all of your servers</p>
+<ul>
+<li><p>Init <code>ipfs</code></p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ipfs init</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>(optional) Go to the <code>.ipfs</code> directory it generated and open <code>config</code></p>
+<p>Change to <code>&quot;Gateway&quot;: &quot;/ip4/0.0.0.0/tcp/8080&quot;</code> so that we can get the file from <code>http://ip:8080/hash</code></p>
+</li>
+</ul>
+</li>
+<li><p>Init <code>ipfs-cluster</code></p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ipfs-cluster-service init</span><br></pre></td></tr></table></figure>
+<p>Go to the <code>.ipfs-cluster</code> directory it generated and open <code>service.json</code></p>
+<p>Make sure every server has the <strong>same</strong> <code>secret</code></p>
+<ul>
+<li><p>(optional) Go to the <code>.ipfs</code> directory it generated and open <code>config</code></p>
+<p>Change to <code>&quot;http_listen_multiaddress&quot;</code> in <code>restapi</code> to <code>&quot;/ip4/0.0.0.0/tcp/9094&quot;</code> so that we can <strong>add&amp;pin</strong> the file into the whole cluster from <code>http://ip:9094</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Start-Daemon"><a href="#Start-Daemon" class="headerlink" title="Start Daemon"></a>Start Daemon</h2><p>The following steps can be optimized to use <code>superviser</code></p>
+<ul>
+<li><p>Start <code>ipfs</code> daemon on every server</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ipfs daemon</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Start <code>ipfs-cluster-service</code> daemon on first server</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ipfs-cluster-service daemon</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Start  <code>ipfs-cluster-service</code> daemon on other servers by <code>bootstrap</code></p>
+<figure class="highlight plain hljs"><table><tr><td class="code"><pre><span class="line">ipfs-cluster-service daemon --bootstrap /ip4/[ip-of-first-server]/tcp/9096/ipfs/[cluster-service-id]</span><br></pre></td></tr></table></figure>
+<p><code>cluster-service-id</code> can be inferred from <code>cluster.id</code> from <code>service.json</code> or logs of <code>ipfs-cluster-service daemon</code> on first server.</p>
+<ul>
+<li><p>e.g </p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ipfs-cluster-service daemon --bootstrap /ip4/12.34.56.78/tcp/9096/ipfs/QmVw41GTKr76Xw2zAgXn1ic98nZfYj1DPd7VJPku4q1oW9</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>Right now, they should be connected!</p>
+<h2 id="Access-cluster-by-axios"><a href="#Access-cluster-by-axios" class="headerlink" title="Access cluster by axios"></a>Access cluster by <code>axios</code></h2><ol>
+<li><p><strong>add&amp;pin</strong> files on one of the server in the cluster</p>
+<p><code>POST [ip]:9094/add</code>  (request <code>content-type</code> must be<code>multipart/form-data</code> )</p>
+</li>
+<li><p>get files from all of the server in the cluster</p>
+<p><code>GET [ip]:8080/ipfs/[CID]</code></p>
+</li>
+</ol>
+<p>Here is the <code>axios</code> example in <code>Vue</code> to upload a binary file (Buffer) in one peer and access it from another in frontend.</p>
+<figure class="highlight javascript hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> buffer = Buffer.from[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]</span><br><span class="line"><span class="hljs-keyword">let</span> bodyFormData = <span class="hljs-keyword">new</span> FormData();</span><br><span class="line"><span class="hljs-keyword">const</span> blob = <span class="hljs-keyword">new</span> Blob([<span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint8Array</span>(buffer)]);</span><br><span class="line">bodyFormData.set(<span class="hljs-string">'file'</span>, blob);</span><br><span class="line"><span class="hljs-keyword">let</span> that = <span class="hljs-keyword">this</span>;</span><br><span class="line"><span class="hljs-keyword">this</span>.$axios(&#123;</span><br><span class="line">    method: <span class="hljs-string">'post'</span>,</span><br><span class="line">    url: <span class="hljs-string">'http://12.34.56.78:9094/add'</span>,</span><br><span class="line">    data: bodyFormData,</span><br><span class="line">    config: &#123;</span><br><span class="line">        headers: &#123;<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'multipart/form-data'</span>&#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">const</span> cid = response.data.cid;</span><br><span class="line">    that.$axios.get(<span class="hljs-string">`http://23.45.67.89/ipfs/<span class="hljs-subst">$&#123;cid&#125;</span>`</span>, &#123;</span><br><span class="line">        responseType: <span class="hljs-string">'arraybuffer'</span></span><br><span class="line">    &#125;).then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">const</span> downloaded = Buffer.from(x.data);</span><br><span class="line">        <span class="hljs-built_in">console</span>.log(downloaded)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/01/12/Using-Protobuf-In-Flutter/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Decentralized/">Decentralized</a>, <a class="has-link-grey -link" href="/tags/IPFS/">IPFS</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
 </div>
 
 
-
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/01/12/Using-Protobuf-In-Flutter/">
+                <span class="level-item">Tutorial - Using Protobuf in Flutter</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
