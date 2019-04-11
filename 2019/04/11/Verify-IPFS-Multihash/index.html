@@ -2,21 +2,23 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: iDict - Blog</title>
+<title>Verify IPFS Multihash - Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Personal website for Xinyi Tao">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="https://xinyitao.tech/tags/iDict/index.html">
+    <meta name="description" content="IPFS has a unique way of identifying the data you store with multihash. For example, using ipfs add an_image.png will actually return a mutlihash which you can use to retrieve the file. However, it se">
+<meta name="keywords" content="IPFS,Security">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Verify IPFS Multihash">
+<meta property="og:url" content="https://xinyitao.tech/2019/04/11/Verify-IPFS-Multihash/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="Personal website for Xinyi Tao">
+<meta property="og:description" content="IPFS has a unique way of identifying the data you store with multihash. For example, using ipfs add an_image.png will actually return a mutlihash which you can use to retrieve the file. However, it se">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-04-11T13:28:38.741Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
-<meta name="twitter:description" content="Personal website for Xinyi Tao">
+<meta name="twitter:title" content="Verify IPFS Multihash">
+<meta name="twitter:description" content="IPFS has a unique way of identifying the data you store with multihash. For example, using ipfs add an_image.png will actually return a mutlihash which you can use to retrieve the file. However, it se">
 
 
 
@@ -151,39 +153,28 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">iDict</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-image">
-        <a href="/2018/11/03/Try-iDict-in-Command-Line/" class="image is-7by1">
-            <img class="thumbnail" src="/image/Try-iDict-in-Command-Line/thumbnail.png" alt="Try iDict in Command Line">
-        </a>
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/image/Verify-IPFS-Multihash/thumbnail.png" alt="Verify IPFS Multihash">
+        </span>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-11-03T07:58:09.000Z">2018-11-03</time>
+                <time class="level-item has-text-grey" datetime="2019-04-11T12:24:42.000Z">2019-04-11</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/iDict/">iDict</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/iDict/cmd/">cmd</a>
+                <a class="has-link-grey -link" href="/categories/IPFS/">IPFS</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    5 minutes read (About 767 words)
+                    5 minutes read (About 688 words)
                 </span>
                 
             </div>
@@ -191,84 +182,73 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2018/11/03/Try-iDict-in-Command-Line/">Try iDict in Command Line</a>
+                Verify IPFS Multihash
             
         </h1>
         <div class="content">
-            <p><img src="https://img.shields.io/github/release/AntiSomnus/iDict-cmd.svg"></p>
-<p>command line version of iDict for macOs&amp;Windows&amp;Linux</p>
-<p><img src="/image/Try-iDict-in-Command-Line/macos_detail.png" alt="" title="macos_detail"><br></p>
+            <p>IPFS has a unique way of identifying the data you store with <a href="https://github.com/multiformats/multihash" target="_blank" rel="noopener">multihash</a>. For example, using <code>ipfs add an_image.png</code> will actually return a <code>mutlihash</code> which you can use to retrieve the file. However, it seems plausible for the front-end (JavaScript) to have the ability to verify it after the content is downloaded. Don’t worry, you are about to grasp it!<br><a id="more"></a></p>
+<h2 id="Decode-Multihash"><a href="#Decode-Multihash" class="headerlink" title="Decode Multihash"></a>Decode Multihash</h2><p>Multihash actually contains the hash method we use and the hash digest output of the content, encoded by base58. Using <a href="https://github.com/multiformats/js-multihash" target="_blank" rel="noopener"><code>multihashes</code></a> library will make you understand it. In IPFS, the hash method is always <code>sha2-256</code> right now. The following class <code>CID</code> will help you convert between <code>sha256</code> hash and multihash.</p>
+<figure class="highlight javascript hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> mh = <span class="hljs-built_in">require</span>(<span class="hljs-string">'multihashes'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CID</span> </span>&#123;</span><br><span class="line">  <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">   * convert IPFS multihash to sha2-256 hash string</span></span><br><span class="line"><span class="hljs-comment">   * @param &#123;string&#125; multihash</span></span><br><span class="line"><span class="hljs-comment">   * @returns &#123;string&#125; sha2-256 hash string starting with 0x</span></span><br><span class="line"><span class="hljs-comment">   */</span></span><br><span class="line">  <span class="hljs-keyword">static</span> toHash(multihash) &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-string">'0x'</span> + mh.decode(mh.fromB58String(multihash)).digest.toString(<span class="hljs-string">'hex'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">   * convert sha2-256 hash string to IPFS multihash</span></span><br><span class="line"><span class="hljs-comment">   * @param &#123;string&#125; str</span></span><br><span class="line"><span class="hljs-comment">   * @returns &#123;string&#125; IPFS multihash starting with Qm</span></span><br><span class="line"><span class="hljs-comment">   */</span></span><br><span class="line">  <span class="hljs-keyword">static</span> fromHash(str) &#123;</span><br><span class="line">    str = str.startsWith(<span class="hljs-string">'0x'</span>) ? str.slice(<span class="hljs-number">2</span>) : str;</span><br><span class="line">    <span class="hljs-keyword">return</span> mh.toB58String(mh.encode(Buffer.from(str, <span class="hljs-string">'hex'</span>), <span class="hljs-string">'sha2-256'</span>))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="The-input-of-SHA256"><a href="#The-input-of-SHA256" class="headerlink" title="The input of SHA256"></a>The input of SHA256</h2><p>However, the input of SHA256 is the content alone, it’s actually wrapped by protobuf.  To get a deep understanding of it, we can do a simple test.</p>
+<ul>
+<li><p>create a file containes <code>ipfs-multihash</code> and add it to IPFS</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-built_in">echo</span> ipfs-multihash &gt; test.txt | ipfs add test.txt</span><br></pre></td></tr></table></figure>
+<p>Its multihash CID will be <code>QmfQj4DUWEudeFdWKVzPaTbYimdYzsp14DZX1VLV1BbtdN</code>.</p>
+</li>
+<li><p>Get the <code>SHA256</code> hash from the multihash.</p>
+<figure class="highlight javascript hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-built_in">console</span>.log(CID.toHash(<span class="hljs-string">"QmfQj4DUWEudeFdWKVzPaTbYimdYzsp14DZX1VLV1BbtdN"</span>));</span><br></pre></td></tr></table></figure>
+<p>The result will be <code>0xfda1ea739791f6784b13590d4be03f6a6dad136eb3ac7615522ad0d910f66cd9</code></p>
+</li>
+<li><p>hash the file</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ipfs get QmfQj4DUWEudeFdWKVzPaTbYimdYzsp14DZX1VLV1BbtdN \</span><br><span class="line">&amp;&amp; shasum -a 256 &lt; QmfQj4DUWEudeFdWKVzPaTbYimdYzsp14DZX1VLV1BbtdN</span><br></pre></td></tr></table></figure>
+<p>The <code>SHA256</code> result is <code>b41a3a2a90e84bf773e03a8bd0d0090f5beb42332a6faaa8718db083ebb130dd</code>,</p>
+<p>which clearly is not <code>fda1ea739791f6784b13590d4be03f6a6dad136eb3ac7615522ad0d910f66cd9</code></p>
+</li>
+<li><p>Using <code>block get</code> instead</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ipfs block get QmfQj4DUWEudeFdWKVzPaTbYimdYzsp14DZX1VLV1BbtdN &gt; block.tmp \</span><br><span class="line">&amp;&amp; shasum -a 256 &lt; block.tmp</span><br></pre></td></tr></table></figure>
+<p>Finally, the <code>SHA256</code> result is <code>fda1ea739791f6784b13590d4be03f6a6dad136eb3ac7615522ad0d910f66cd9</code>.</p>
+<p>So what is the content of <code>block get</code> anyway?</p>
+</li>
+<li><p>Using <code>protoc</code> to see what actually happens</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">protoc --decode_raw &lt; block.tmp</span><br></pre></td></tr></table></figure>
+<p>The result is actually great</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">1 &#123;</span><br><span class="line">  1: 2</span><br><span class="line">  2: <span class="hljs-string">"ipfs-multihash\n"</span></span><br><span class="line">  3: 15</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>According to <a href="https://stackoverflow.com/a/51689690/6456568" target="_blank" rel="noopener">how-recreate-a-hash-digest-of-a-multihash-in-ipfs</a>, we know it contains Type, Data and fileSize. A simplified and working example is here:</p>
+<figure class="highlight protobuf hljs"><table><tr><td class="code"><pre><span class="line">syntax = <span class="hljs-string">"proto3"</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">message</span> <span class="hljs-title">PBNode</span> </span>&#123;</span><br><span class="line">  <span class="hljs-built_in">bytes</span> Data = <span class="hljs-number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">message</span> <span class="hljs-title">PBLink</span> </span>&#123;</span><br><span class="line">  <span class="hljs-built_in">bytes</span> Hash = <span class="hljs-number">1</span>;</span><br><span class="line">  <span class="hljs-built_in">string</span> Name = <span class="hljs-number">2</span>;</span><br><span class="line">  <span class="hljs-built_in">uint64</span> Tsize = <span class="hljs-number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">message</span> <span class="hljs-title">Data</span> </span>&#123;</span><br><span class="line">  <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DataType</span> </span>&#123;</span><br><span class="line">    Raw = <span class="hljs-number">0</span>;</span><br><span class="line">    Directory = <span class="hljs-number">1</span>;</span><br><span class="line">    File = <span class="hljs-number">2</span>;</span><br><span class="line">    Metadata = <span class="hljs-number">3</span>;</span><br><span class="line">    Symlink = <span class="hljs-number">4</span>;</span><br><span class="line">    HAMTShard = <span class="hljs-number">5</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  DataType Type = <span class="hljs-number">1</span>;</span><br><span class="line">  <span class="hljs-built_in">bytes</span> Data = <span class="hljs-number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Full-example"><a href="#Full-example" class="headerlink" title="Full example"></a>Full example</h2><figure class="highlight javascript hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> mh = <span class="hljs-built_in">require</span>(<span class="hljs-string">'multihashes'</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> axios = <span class="hljs-built_in">require</span>(<span class="hljs-string">'axios'</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> crypto = <span class="hljs-built_in">require</span>(<span class="hljs-string">'crypto'</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> protobuf = <span class="hljs-built_in">require</span>(<span class="hljs-string">"protobufjs"</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> IPFS = protobuf.loadSync(<span class="hljs-string">'./ipfs.proto'</span>).lookupType(<span class="hljs-string">'PBNode'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CID</span> </span>&#123;</span><br><span class="line">  <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">   * convert IPFS multihash to sha2-256 hash string</span></span><br><span class="line"><span class="hljs-comment">   * @param &#123;string&#125; multihash</span></span><br><span class="line"><span class="hljs-comment">   * @param &#123;boolean&#125; prefix</span></span><br><span class="line"><span class="hljs-comment">   * @returns &#123;string&#125; sha2-256 hash string starting with 0x</span></span><br><span class="line"><span class="hljs-comment">   */</span></span><br><span class="line">  <span class="hljs-keyword">static</span> toHash(multihash, prefix = <span class="hljs-literal">false</span>) &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> prefix ? <span class="hljs-string">'0x'</span> : <span class="hljs-string">''</span></span><br><span class="line">      + mh.decode(mh.fromB58String(multihash)).digest.toString(<span class="hljs-string">'hex'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">   * convert sha2-256 hash string to IPFS multihash</span></span><br><span class="line"><span class="hljs-comment">   * @param &#123;string&#125; str</span></span><br><span class="line"><span class="hljs-comment">   * @returns &#123;string&#125; IPFS multihash starting with Qm</span></span><br><span class="line"><span class="hljs-comment">   */</span></span><br><span class="line">  <span class="hljs-keyword">static</span> fromHash(str) &#123;</span><br><span class="line">    str = str.startsWith(<span class="hljs-string">'0x'</span>) ? str.slice(<span class="hljs-number">2</span>) : str;</span><br><span class="line">    <span class="hljs-keyword">return</span> mh.toB58String(mh.encode(Buffer.from(str, <span class="hljs-string">'hex'</span>), <span class="hljs-string">'sha2-256'</span>))</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">   * hash the buffer and get the SHA256 result compatible with IPFS multihash</span></span><br><span class="line"><span class="hljs-comment">   * @param &#123;Buffer&#125; buf</span></span><br><span class="line"><span class="hljs-comment">   * @returns &#123;string&#125;</span></span><br><span class="line"><span class="hljs-comment">   */</span></span><br><span class="line">  <span class="hljs-keyword">static</span> hash(buf) &#123;</span><br><span class="line">    <span class="hljs-keyword">const</span> r = IPFS.encode(&#123;</span><br><span class="line">      Data: &#123;</span><br><span class="line">        Type: <span class="hljs-number">2</span>,</span><br><span class="line">        Data: buf,</span><br><span class="line">        filesize: buf.length</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;).finish();</span><br><span class="line">    <span class="hljs-keyword">return</span> crypto.createHash(<span class="hljs-string">'sha256'</span>).update(r).digest(<span class="hljs-string">'hex'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ipfsGet</span>(<span class="hljs-params">cid</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">const</span> x = <span class="hljs-keyword">await</span> axios.get(<span class="hljs-string">`http://your.address.xxx/ipfs/<span class="hljs-subst">$&#123;cid&#125;</span>`</span>, &#123;</span><br><span class="line">    responseType: <span class="hljs-string">'arraybuffer'</span></span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="hljs-keyword">return</span> Buffer.from(x.data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> r = <span class="hljs-string">"QmfQj4DUWEudeFdWKVzPaTbYimdYzsp14DZX1VLV1BbtdN"</span>;</span><br><span class="line"><span class="hljs-keyword">const</span> hashFromCID = CID.toHash(r);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(hashFromCID);</span><br><span class="line">ipfsGet(r).then(<span class="hljs-function"><span class="hljs-params">buf</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">const</span> hashCalculated = CID.hash(buf);</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(hashCalculated);</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(hashCalculated === hashFromCID);</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(CID.fromHash(hashCalculated) === r)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">module</span>.exports = CID;</span><br></pre></td></tr></table></figure>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2018/11/03/Try-iDict-in-Command-Line/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/IPFS/">IPFS</a>, <a class="has-link-grey -link" href="/tags/Security/">Security</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
 </div>
 
 
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/2018/11/03/An-Introduction-to-iDict-Weapp/" class="image is-7by1">
-            <img class="thumbnail" src="/image/An-Introduction-to-IDict-Weapp/thumbnail.png" alt="Introduction of iDict-weapp">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-11-03T06:36:06.554Z">2018-11-03</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/iDict/">iDict</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/iDict/Weapp/">Weapp</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    a minute read (About 131 words)
-                </span>
-                
-            </div>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/03/03/Get-Ready-to-Use-IPFS-Cluster/">
+                <span class="level-item">Tutorial - Get Ready to Use IPFS Cluster</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2018/11/03/An-Introduction-to-iDict-Weapp/">Introduction of iDict-weapp</a>
-            
-        </h1>
-        <div class="content">
-            <p>A better English to Chinese Dictionary in Weapp.<br></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2018/11/03/An-Introduction-to-iDict-Weapp/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
         
     </div>
 </div>
-
-
-
 
 
 </div>

@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="IPFS has become one of the most popular ways to store your data in a decentralized way. This tutorial will demonstrate the basic usage of ipfs, ipfs-cluster and how to access it via axios in JavaScrip">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-03T08:44:28.608Z">
+<meta property="og:updated_time" content="2019-04-11T12:26:10.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tutorial - Get Ready to Use IPFS Cluster">
 <meta name="twitter:description" content="IPFS has become one of the most popular ways to store your data in a decentralized way. This tutorial will demonstrate the basic usage of ipfs, ipfs-cluster and how to access it via axios in JavaScrip">
@@ -133,7 +133,7 @@
                 
                 <a class="navbar-item" href="/about">About</a>
                 
-                <a class="navbar-item" href="/owl">OWL</a>
+                <a class="navbar-item" href="https://owl.ireading.site">OWL</a>
                 
             </div>
             
@@ -250,7 +250,7 @@
 </li>
 </ol>
 <p>Here is the <code>axios</code> example in <code>Vue</code> to upload a binary file (Buffer) in one peer and access it from another in frontend.</p>
-<figure class="highlight javascript hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> buffer = Buffer.from[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]</span><br><span class="line"><span class="hljs-keyword">let</span> bodyFormData = <span class="hljs-keyword">new</span> FormData();</span><br><span class="line"><span class="hljs-keyword">const</span> blob = <span class="hljs-keyword">new</span> Blob([<span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint8Array</span>(buffer)]);</span><br><span class="line">bodyFormData.set(<span class="hljs-string">'file'</span>, blob);</span><br><span class="line"><span class="hljs-keyword">let</span> that = <span class="hljs-keyword">this</span>;</span><br><span class="line"><span class="hljs-keyword">this</span>.$axios(&#123;</span><br><span class="line">    method: <span class="hljs-string">'post'</span>,</span><br><span class="line">    url: <span class="hljs-string">'http://12.34.56.78:9094/add'</span>,</span><br><span class="line">    data: bodyFormData,</span><br><span class="line">    config: &#123;</span><br><span class="line">        headers: &#123;<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'multipart/form-data'</span>&#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">const</span> cid = response.data.cid;</span><br><span class="line">    that.$axios.get(<span class="hljs-string">`http://23.45.67.89/ipfs/<span class="hljs-subst">$&#123;cid&#125;</span>`</span>, &#123;</span><br><span class="line">        responseType: <span class="hljs-string">'arraybuffer'</span></span><br><span class="line">    &#125;).then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">const</span> downloaded = Buffer.from(x.data);</span><br><span class="line">        <span class="hljs-built_in">console</span>.log(downloaded)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> buffer = Buffer.from[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];</span><br><span class="line"><span class="hljs-keyword">let</span> bodyFormData = <span class="hljs-keyword">new</span> FormData();</span><br><span class="line"><span class="hljs-keyword">const</span> blob = <span class="hljs-keyword">new</span> Blob([<span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint8Array</span>(buffer)]);</span><br><span class="line">bodyFormData.set(<span class="hljs-string">'file'</span>, blob);</span><br><span class="line"><span class="hljs-keyword">let</span> that = <span class="hljs-keyword">this</span>;</span><br><span class="line"><span class="hljs-keyword">this</span>.$axios(&#123;</span><br><span class="line">    method: <span class="hljs-string">'post'</span>,</span><br><span class="line">    url: <span class="hljs-string">'http://12.34.56.78:9094/add'</span>,</span><br><span class="line">    data: bodyFormData,</span><br><span class="line">    config: &#123;</span><br><span class="line">        headers: &#123;<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'multipart/form-data'</span>&#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">const</span> cid = response.data.cid;</span><br><span class="line">    that.$axios.get(<span class="hljs-string">`http://23.45.67.89/ipfs/<span class="hljs-subst">$&#123;cid&#125;</span>`</span>, &#123;</span><br><span class="line">        responseType: <span class="hljs-string">'arraybuffer'</span></span><br><span class="line">    &#125;).then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">const</span> downloaded = Buffer.from(x.data);</span><br><span class="line">        <span class="hljs-built_in">console</span>.log(downloaded)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
         </div>
         
@@ -271,6 +271,13 @@
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/11/Verify-IPFS-Multihash/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Verify IPFS Multihash</span>
+            </a>
+        </div>
         
         
         <div class="level-end">
@@ -324,7 +331,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        4
+                        5
                     </p>
                 </div>
             </div>
@@ -344,7 +351,7 @@
                         Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        4
+                        5
                     </p>
                 </div>
             </div>
@@ -424,7 +431,7 @@
                 <span class="level-item">IPFS</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/iDict/">
@@ -468,6 +475,25 @@
         
         <article class="media">
             
+            <a href="/2019/04/11/Verify-IPFS-Multihash/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/image/Verify-IPFS-Multihash/thumbnail.png" alt="Verify IPFS Multihash">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T12:24:42.000Z">2019-04-11</time></div>
+                    <a href="/2019/04/11/Verify-IPFS-Multihash/" class="has-link-black-ter is-size-6">Verify IPFS Multihash</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/IPFS/">IPFS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/03/03/Get-Ready-to-Use-IPFS-Cluster/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/image/Get-Ready-to-Use-IPFS-Cluster/thumbnail.png" alt="Tutorial - Get Ready to Use IPFS Cluster">
@@ -555,6 +581,17 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2019/03/">
                 <span class="level-start">
                     <span class="level-item">March 2019</span>
@@ -617,7 +654,7 @@
                             <span class="level-item">IPFS</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">2</span>
                         </span>
                     </a>
                 </li>
@@ -626,6 +663,17 @@
                     <a class="level is-marginless" href="/tags/Protobuf/">
                         <span class="level-start">
                             <span class="level-item">Protobuf</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/Security/">
+                        <span class="level-start">
+                            <span class="level-item">Security</span>
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">1</span>
@@ -668,6 +716,25 @@
         
         <article class="media">
             
+            <a href="/2019/04/11/Verify-IPFS-Multihash/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/image/Verify-IPFS-Multihash/thumbnail.png" alt="Verify IPFS Multihash">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T12:24:42.000Z">2019-04-11</time></div>
+                    <a href="/2019/04/11/Verify-IPFS-Multihash/" class="has-link-black-ter is-size-6">Verify IPFS Multihash</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/IPFS/">IPFS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/03/03/Get-Ready-to-Use-IPFS-Cluster/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/image/Get-Ready-to-Use-IPFS-Cluster/thumbnail.png" alt="Tutorial - Get Ready to Use IPFS Cluster">
@@ -755,6 +822,17 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/archives/2019/03/">
                 <span class="level-start">
                     <span class="level-item">March 2019</span>
@@ -817,7 +895,7 @@
                             <span class="level-item">IPFS</span>
                         </span>
                         <span class="level-end">
-                            <span class="level-item tag">1</span>
+                            <span class="level-item tag">2</span>
                         </span>
                     </a>
                 </li>
@@ -826,6 +904,17 @@
                     <a class="level is-marginless" href="/tags/Protobuf/">
                         <span class="level-start">
                             <span class="level-item">Protobuf</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/Security/">
+                        <span class="level-start">
+                            <span class="level-item">Security</span>
                         </span>
                         <span class="level-end">
                             <span class="level-item tag">1</span>

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://xinyitao.tech/2019/04/11/Verify-IPFS-Multihash/</loc>
+    <lastmod>2019-04-11T13:28:38.741Z</lastmod>
+  </url>  <url>
     <loc>https://xinyitao.tech/2019/03/03/Get-Ready-to-Use-IPFS-Cluster/</loc>
-    <lastmod>2019-03-03T08:44:28.608Z</lastmod>
+    <lastmod>2019-04-11T12:26:10.284Z</lastmod>
   </url>  <url>
     <loc>https://xinyitao.tech/2019/01/12/Using-Protobuf-In-Flutter/</loc>
     <lastmod>2019-01-12T07:42:00.431Z</lastmod>
