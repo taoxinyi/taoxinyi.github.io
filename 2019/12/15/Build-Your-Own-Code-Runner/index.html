@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="Nowadays, there are a lot of online coding platform, like LeetCode and CoderPad. Such platforms provide an IDE at the frontend for the user to write code. When they hit ‘Run’, the code will be automat">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-16T02:47:56.332Z">
+<meta property="og:updated_time" content="2019-12-16T03:13:01.005Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Blog">
 <meta name="twitter:description" content="Nowadays, there are a lot of online coding platform, like LeetCode and CoderPad. Such platforms provide an IDE at the frontend for the user to write code. When they hit ‘Run’, the code will be automat">
@@ -176,7 +176,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 minutes read (About 870 words)
+                    6 minutes read (About 868 words)
                 </span>
                 
             </div>
@@ -202,10 +202,10 @@
 <p>However, if you see the warning <code>No swap limit support</code>. We need to change <code>/etc/default/grub</code> according to <a href="https://unix.stackexchange.com/questions/342735/docker-warning-no-swap-limit-support" target="_blank" rel="noopener">this solution</a>. Especially for Google Cloud, we need to change <code>/etc/default/grub.d/50-cloudimg-settings.cfg</code> instead.</p>
 <p>After that, we will not see the warning.</p>
 <h3 id="CleanUp"><a href="#CleanUp" class="headerlink" title="CleanUp"></a>CleanUp</h3><p>using <code>docker --rm</code> to clean up once done.</p>
-<h3 id="Timeout"><a href="#Timeout" class="headerlink" title="Timeout"></a>Timeout</h3><p>It’s also important to set timeout so that malicious code (<code>while True: pass</code>) will not get executed indefinitely. However, it seems docker doesn’t support this natively. We may need to need to rely on command <code>timeout</code> to send <code>SIGKILL</code> when some time period is passed (5s). After that, we still need to clean up all the container resources, therefore we may need a random <code>name</code> for each container. So in case of timeout, we can use this <code>name</code> to kill this container first then combined with <code>--rm</code>, the container will be removed.</p>
+<h3 id="Timeout"><a href="#Timeout" class="headerlink" title="Timeout"></a>Timeout</h3><p>It’s also important to set timeout so that malicious code (<code>while True: pass</code>) will not get executed indefinitely. However, it seems docker doesn’t support this natively. We may need to rely on command <code>timeout</code> to send <code>SIGKILL</code> when some time period is passed (5s). After that, we still need to clean up all the container resources, therefore we may need a random <code>name</code> for each container. So in case of timeout, we can use this <code>name</code> to kill this container first then combined with <code>--rm</code>, the container will be removed.</p>
 <h3 id="Folder-mapping"><a href="#Folder-mapping" class="headerlink" title="Folder mapping"></a>Folder mapping</h3><p>For each code execution, we need to create a new folder that contains the user input file, which will map(mount) it to the docker container by using <code>docker -v</code></p>
 <figure class="highlight shell hljs"><table><tr><td class="code"><pre><span class="line">docker -v /home/xinyi/random-folder:/code</span><br></pre></td></tr></table></figure>
-<p>Therefore inside the folder <code>/code</code> of the container, it contains out input file.</p>
+<p>Therefore inside the folder <code>/code</code> of the container, it contains our input file.</p>
 <h3 id="Compile-amp-Run"><a href="#Compile-amp-Run" class="headerlink" title="Compile &amp; Run"></a>Compile &amp; Run</h3><h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><p>Python is the easiest to do, but we need to use <code>-u</code> to get the output</p>
 <figure class="highlight shell hljs"><table><tr><td class="code"><pre><span class="line">docker run --rm -m 64M --memory-swap 64M --name cb8c6ecf-4afa-4fb0-9f46-a3a9dd982ca8 -v /runcode/input/cb8c6ecf-4afa-4fb0-9f46-a3a9dd982ca8:/code -w /code python:3.7-alpine python3 -u file.py</span><br></pre></td></tr></table></figure>
 <h4 id="C-C"><a href="#C-C" class="headerlink" title="C/C++"></a>C/C++</h4><figure class="highlight shell hljs"><table><tr><td class="code"><pre><span class="line">docker run --rm -m 64M --memory-swap 64M --name 00854b7c-f768-406a-80cc-1851d2228920 -v /runcode/input/00854b7c-f768-406a-80cc-1851d2228920:/code -w /code cpp /bin/sh -c "g++ -Wall file.cpp -o a &amp;&amp; ./a &gt;&amp;1 | tee"</span><br></pre></td></tr></table></figure>
