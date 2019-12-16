@@ -2,21 +2,23 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Category: IPFS - Blog</title>
+<title>Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Personal website for Xinyi Tao">
-<meta property="og:type" content="website">
+    <meta name="description" content="Nowadays, there are a lot of online coding platform, like LeetCode and CoderPad. Such platforms provide an IDE at the frontend for the user to write code. When they hit ‘Run’, the code will be automat">
+<meta name="keywords" content="Docker">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Blog">
-<meta property="og:url" content="https://xinyitao.tech/categories/IPFS/index.html">
+<meta property="og:url" content="https://xinyitao.tech/2019/12/15/Build-Your-Own-Code-Runner/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="Personal website for Xinyi Tao">
+<meta property="og:description" content="Nowadays, there are a lot of online coding platform, like LeetCode and CoderPad. Such platforms provide an IDE at the frontend for the user to write code. When they hit ‘Run’, the code will be automat">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-16T02:47:56.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Blog">
-<meta name="twitter:description" content="Personal website for Xinyi Tao">
+<meta name="twitter:description" content="Nowadays, there are a lot of online coding platform, like LeetCode and CoderPad. Such platforms provide an IDE at the frontend for the user to write code. When they hit ‘Run’, the code will be automat">
 
 
 
@@ -153,40 +155,28 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/categories">Categories</a></li>
-            
-            <li class="is-active"><a href="#" aria-current="page">IPFS</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-image">
-        <a href="/2019/04/11/Verify-IPFS-Multihash/" class="image is-7by1">
-            <img class="thumbnail" src="/image/Verify-IPFS-Multihash/thumbnail.png" alt="Verify IPFS Multihash">
-        </a>
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/image/Build-Your-Own-Code-Runner/thumbnail.png" alt="">
+        </span>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-12T00:24:42.000Z">2019-04-11</time>
+                <time class="level-item has-text-grey" datetime="2019-12-16T01:06:27.000Z">2019-12-15</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/IPFS/">IPFS</a>
+                <a class="has-link-grey -link" href="/categories/Docker/">Docker</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    5 minutes read (About 688 words)
+                    6 minutes read (About 870 words)
                 </span>
                 
             </div>
@@ -194,82 +184,71 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/04/11/Verify-IPFS-Multihash/">Verify IPFS Multihash</a>
+                
             
         </h1>
         <div class="content">
-            <p>IPFS has a unique way of identifying the data you store with <a href="https://github.com/multiformats/multihash" target="_blank" rel="noopener">multihash</a>. For example, using <code>ipfs add an_image.png</code> will actually return a <code>mutlihash</code> which you can use to retrieve the file. However, it seems plausible for the front-end (JavaScript) to have the ability to verify it after the content is downloaded. Don’t worry, you are about to grasp it!<br></p>
+            <p>Nowadays, there are a lot of online coding platform, like <a href="https://leetcode.com" target="_blank" rel="noopener">LeetCode</a> and <a href="https://coderpad.io/" target="_blank" rel="noopener">CoderPad</a>. Such platforms provide an IDE at the frontend for the user to write code. When they hit ‘Run’, the code will be automatically executed in remote server and have the result back to the user. <a href="https://runcode.app" target="_blank" rel="noopener">RunCode</a> is my prototype of such platform. In this article, we will build our own!<br><a id="more"></a></p>
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><p>We need docker to separate each user’s code and output file. By creating individual container for each code execution, we will not worry user’s malicious code like <code>rm -rf /</code> that will delete all the server. Besides, we can separate <code>stdout</code> so that users’ output won’t be interleaved.</p>
+<p>After <a href="https://docs.docker.com/install/" target="_blank" rel="noopener">installing</a> docker, we will pull some alpine images for C/C++, Java, Python. I choose alpine because of its small size.</p>
+<p>For C&amp;C++, we only need to install g++ (it will install gcc as well). Creating the following Dockerfile.</p>
+<figure class="highlight dockerfile hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">FROM</span> alpine:<span class="hljs-number">3.10</span></span><br><span class="line"><span class="hljs-keyword">RUN</span> apk add --no-cache g++</span><br></pre></td></tr></table></figure>
+<p>run <code>docker build -t cpp .</code> to build the image with tag <code>cpp</code>.</p>
+<p>For Java and Python, we will use the official alpine image </p>
+<figure class="highlight shell hljs"><table><tr><td class="code"><pre><span class="line">docker pull python:3.7-alpine</span><br><span class="line">docker pull java:alpine</span><br></pre></td></tr></table></figure>
+<h2 id="Build-the-Command"><a href="#Build-the-Command" class="headerlink" title="Build the Command"></a>Build the Command</h2><h3 id="Memory-Restriction"><a href="#Memory-Restriction" class="headerlink" title="Memory Restriction"></a>Memory Restriction</h3><p>It’s important that each user’s program will consume the memory from the host server indefinitely. We need to set memory restraint by using <code>docker -m</code></p>
+<p>For example, limit the maximum memory usage is 64MB.</p>
+<figure class="highlight shell hljs"><table><tr><td class="code"><pre><span class="line">docker -m 64M --memory-swap 64M</span><br></pre></td></tr></table></figure>
+<p>However, if you see the warning <code>No swap limit support</code>. We need to change <code>/etc/default/grub</code> according to <a href="https://unix.stackexchange.com/questions/342735/docker-warning-no-swap-limit-support" target="_blank" rel="noopener">this solution</a>. Especially for Google Cloud, we need to change <code>/etc/default/grub.d/50-cloudimg-settings.cfg</code> instead.</p>
+<p>After that, we will not see the warning.</p>
+<h3 id="CleanUp"><a href="#CleanUp" class="headerlink" title="CleanUp"></a>CleanUp</h3><p>using <code>docker --rm</code> to clean up once done.</p>
+<h3 id="Timeout"><a href="#Timeout" class="headerlink" title="Timeout"></a>Timeout</h3><p>It’s also important to set timeout so that malicious code (<code>while True: pass</code>) will not get executed indefinitely. However, it seems docker doesn’t support this natively. We may need to need to rely on command <code>timeout</code> to send <code>SIGKILL</code> when some time period is passed (5s). After that, we still need to clean up all the container resources, therefore we may need a random <code>name</code> for each container. So in case of timeout, we can use this <code>name</code> to kill this container first then combined with <code>--rm</code>, the container will be removed.</p>
+<h3 id="Folder-mapping"><a href="#Folder-mapping" class="headerlink" title="Folder mapping"></a>Folder mapping</h3><p>For each code execution, we need to create a new folder that contains the user input file, which will map(mount) it to the docker container by using <code>docker -v</code></p>
+<figure class="highlight shell hljs"><table><tr><td class="code"><pre><span class="line">docker -v /home/xinyi/random-folder:/code</span><br></pre></td></tr></table></figure>
+<p>Therefore inside the folder <code>/code</code> of the container, it contains out input file.</p>
+<h3 id="Compile-amp-Run"><a href="#Compile-amp-Run" class="headerlink" title="Compile &amp; Run"></a>Compile &amp; Run</h3><h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><p>Python is the easiest to do, but we need to use <code>-u</code> to get the output</p>
+<figure class="highlight shell hljs"><table><tr><td class="code"><pre><span class="line">docker run --rm -m 64M --memory-swap 64M --name cb8c6ecf-4afa-4fb0-9f46-a3a9dd982ca8 -v /runcode/input/cb8c6ecf-4afa-4fb0-9f46-a3a9dd982ca8:/code -w /code python:3.7-alpine python3 -u file.py</span><br></pre></td></tr></table></figure>
+<h4 id="C-C"><a href="#C-C" class="headerlink" title="C/C++"></a>C/C++</h4><figure class="highlight shell hljs"><table><tr><td class="code"><pre><span class="line">docker run --rm -m 64M --memory-swap 64M --name 00854b7c-f768-406a-80cc-1851d2228920 -v /runcode/input/00854b7c-f768-406a-80cc-1851d2228920:/code -w /code cpp /bin/sh -c "g++ -Wall file.cpp -o a &amp;&amp; ./a &gt;&amp;1 | tee"</span><br></pre></td></tr></table></figure>
+<p>I find only in this way we can get the multiprocessing output.</p>
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><p>Java is the most tricky one, since we need to find the class with function <code>main</code>. Besides, if there is a <code>public class</code>, the filename should be exactly the same as the class name. Therefore, we need to do preprocessing on the input file and rename the file if possible.</p>
+<p>Regex <code>/^\s*public class\s+([^\s]+)/m</code> is used to get the public class name, if any, rename the java file to the class name.</p>
+<p>Then using <code>runJava.sh</code> to compile and run.</p>
+<figure class="highlight sh hljs"><table><tr><td class="code"><pre><span class="line">javac <span class="hljs-variable">$1</span></span><br><span class="line"><span class="hljs-keyword">if</span> [ $? -ne 0 ]; <span class="hljs-keyword">then</span> <span class="hljs-comment"># java compile error</span></span><br><span class="line">    <span class="hljs-built_in">exit</span> 1</span><br><span class="line"><span class="hljs-keyword">fi</span></span><br><span class="line"><span class="hljs-keyword">for</span> classfile <span class="hljs-keyword">in</span> *.class; <span class="hljs-keyword">do</span></span><br><span class="line">    classname=<span class="hljs-variable">$&#123;classfile%.*&#125;</span></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">#Execute fgrep with -q option to not display anything on stdout when the match is found</span></span><br><span class="line">    <span class="hljs-keyword">if</span> javap -public <span class="hljs-variable">$classname</span> | fgrep -q <span class="hljs-string">'public static void main'</span>; <span class="hljs-keyword">then</span></span><br><span class="line">        java <span class="hljs-variable">$classname</span> <span class="hljs-string">"<span class="hljs-variable">$@</span>"</span></span><br><span class="line">        <span class="hljs-built_in">exit</span> 0;</span><br><span class="line">    <span class="hljs-keyword">fi</span></span><br><span class="line"><span class="hljs-keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>Therefore, an additional read-only mapping for <code>runJava.sh</code> is necessary</p>
+<figure class="highlight shell hljs"><table><tr><td class="code"><pre><span class="line">docker run --rm -m 64M --memory-swap 64M --name 00854b7c-f768-406a-80cc-1851d2228920 -v /runcode/input/00854b7c-f768-406a-80cc-1851d2228920:/code -w /code -v /runcode/input/runJava.sh:/code/runJava.sh:ro  java:alpine sh -c "./runJava.sh YourClass.java"</span><br></pre></td></tr></table></figure>
+<h2 id="Error-amp-Output"><a href="#Error-amp-Output" class="headerlink" title="Error&amp;Output"></a>Error&amp;Output</h2><p>We can determine error, timeout or actual output from <code>err</code>, <code>stdout</code> and <code>stderr</code> like the following <code>Node.js</code> snippet.</p>
+<figure class="highlight javascript hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> dockerRunAndCleanup(id, cmd) &#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">(resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    exec(cmd, &#123;<span class="hljs-attr">timeout</span>: <span class="hljs-keyword">this</span>.TimeoutMs, <span class="hljs-attr">killSignal</span>: <span class="hljs-string">'SIGKILL'</span>&#125;, (err, stdout, stderr) =&gt; &#123;</span><br><span class="line">      <span class="hljs-keyword">if</span> (stderr) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (stderr.startsWith(<span class="hljs-string">"docker: Error response from daemon: OCI runtime"</span>))</span><br><span class="line">          reject(<span class="hljs-string">"Out of Memory 64MB"</span>);</span><br><span class="line">        <span class="hljs-keyword">else</span></span><br><span class="line">          reject(stderr);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="hljs-keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (err.killed) &#123; <span class="hljs-comment">// timeout</span></span><br><span class="line">          exec(<span class="hljs-string">`<span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.dockerContainerKill&#125;</span> <span class="hljs-subst">$&#123;id&#125;</span>`</span>);   <span class="hljs-comment">// kill the container</span></span><br><span class="line">          resolve(stdout + <span class="hljs-string">`\nTimeout after <span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.TimeoutMs&#125;</span>ms`</span>);</span><br><span class="line">        &#125; <span class="hljs-keyword">else</span></span><br><span class="line">          reject(err.message.split(<span class="hljs-string">'\n'</span>).slice(<span class="hljs-number">1</span>).join(<span class="hljs-string">'\n'</span>));</span><br><span class="line">      &#125; <span class="hljs-keyword">else</span></span><br><span class="line">        resolve(stdout);</span><br><span class="line">    &#125;);   </span><br><span class="line">  &#125;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/04/11/Verify-IPFS-Multihash/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Docker/">Docker</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
 </div>
 
 
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/03/03/Get-Ready-to-Use-IPFS-Cluster/" class="image is-7by1">
-            <img class="thumbnail" src="/image/Get-Ready-to-Use-IPFS-Cluster/thumbnail.png" alt="Tutorial - Get Ready to Use IPFS Cluster">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-03T20:58:35.000Z">2019-03-03</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/IPFS/">IPFS</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 minutes read (About 456 words)
-                </span>
-                
-            </div>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/04/11/Verify-IPFS-Multihash/">
+                <span class="level-item">Verify IPFS Multihash</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/03/03/Get-Ready-to-Use-IPFS-Cluster/">Tutorial - Get Ready to Use IPFS Cluster</a>
-            
-        </h1>
-        <div class="content">
-            <p>IPFS has become one of the most popular ways to store your data in a decentralized way. This tutorial will demonstrate the basic usage of <code>ipfs</code>, <code>ipfs-cluster</code> and how to access it via <code>axios</code> in JavaScript.<br></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/03/03/Get-Ready-to-Use-IPFS-Cluster/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
         
     </div>
 </div>
-
-
-
 
 
 </div>
