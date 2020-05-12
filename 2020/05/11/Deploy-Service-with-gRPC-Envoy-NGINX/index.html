@@ -2,22 +2,25 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Categories - Blog</title>
+<title>Deploy Service with gRPC, Envoy and NGINX - Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Personal website for Xinyi Tao">
-<meta name="keywords" content="iDict,gRPC,Protobuf,Docker,IPFS,Decentralized,Security">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="https://xinyitao.tech/categories/index.html">
+    <meta name="description" content="Are you bored with RESTful API? Take a look at gRPC! gRPC is a high performance RPC framework  communicating with Protobuf. With the help of Envoy, an powerful service proxy to load balancing and tran">
+<meta name="keywords" content="gRPC,Protobuf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deploy Service with gRPC, Envoy and NGINX">
+<meta property="og:url" content="https://xinyitao.tech/2020/05/11/Deploy-Service-with-gRPC-Envoy-NGINX/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="Personal website for Xinyi Tao">
+<meta property="og:description" content="Are you bored with RESTful API? Take a look at gRPC! gRPC is a high performance RPC framework  communicating with Protobuf. With the help of Envoy, an powerful service proxy to load balancing and tran">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://miro.medium.com/max/4106/1*mAkZWyRD9gKyBEOaqEFm-A.png">
+<meta property="og:updated_time" content="2020-05-12T00:05:31.993Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
-<meta name="twitter:description" content="Personal website for Xinyi Tao">
+<meta name="twitter:title" content="Deploy Service with gRPC, Envoy and NGINX">
+<meta name="twitter:description" content="Are you bored with RESTful API? Take a look at gRPC! gRPC is a high performance RPC framework  communicating with Protobuf. With the help of Envoy, an powerful service proxy to load balancing and tran">
+<meta name="twitter:image" content="https://miro.medium.com/max/4106/1*mAkZWyRD9gKyBEOaqEFm-A.png">
 
 
 
@@ -126,7 +129,7 @@
                 
                 <a class="navbar-item" href="/archives">Archives</a>
                 
-                <a class="navbar-item is-active" href="/categories">Categories</a>
+                <a class="navbar-item" href="/categories">Categories</a>
                 
                 <a class="navbar-item" href="/tags">Tags</a>
                 
@@ -153,83 +156,125 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Categories
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/Docker/">
-            <span class="level-start">
-                <span class="level-item">Docker</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Flutter/">
-            <span class="level-start">
-                <span class="level-item">Flutter</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/Flutter/Protobuf/">
-            <span class="level-start">
-                <span class="level-item">Protobuf</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li></ul></li><li>
-        <a class="level is-marginless" href="/categories/IPFS/">
-            <span class="level-start">
-                <span class="level-item">IPFS</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/iDict/">
-            <span class="level-start">
-                <span class="level-item">iDict</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/iDict/Weapp/">
-            <span class="level-start">
-                <span class="level-item">Weapp</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/iDict/cmd/">
-            <span class="level-start">
-                <span class="level-item">cmd</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li></ul></li><li>
-        <a class="level is-marginless" href="/categories/web/">
-            <span class="level-start">
-                <span class="level-item">web</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li>
-            </ul>
-        </div>
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/image/Deploy-Service-with-gRPC-Envoy-NGINX/thumbnail.png" alt="Deploy Service with gRPC, Envoy and NGINX">
+        </span>
     </div>
-</div></div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-05-11T22:10:27.000Z">2020-05-11</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/web/">web</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 minutes read (About 974 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Deploy Service with gRPC, Envoy and NGINX
+            
+        </h1>
+        <div class="content">
+            <p>Are you bored with RESTful API? Take a look at <a href="https://grpc.io/" target="_blank" rel="noopener">gRPC</a>! gRPC is a high performance RPC framework  communicating with Protobuf. With the help of <a href="https://www.envoyproxy.io/" target="_blank" rel="noopener">Envoy</a>, an powerful service proxy to load balancing and translation, and <a href="https://www.nginx.com/" target="_blank" rel="noopener">NGINX</a> as the front proxy for static files and frontend requests, you can easily host you SPA application with all the benefits of gRPC. </p>
+<a id="more"></a>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>The benefit of using gRPC including Multiplexing with HTTP/2, light packet size and fast serialization/deserialization with Protobuf, etc. More discussions can be found on <a href="https://docs.microsoft.com/en-us/aspnet/core/grpc/comparison?view=aspnetcore-3.1" target="_blank" rel="noopener">the website from Microsoft</a></p>
+<p>In this article, we will not get into the details about how to write a gRPC backend service, since the official document from gRPC is very detailed. For example, you can take a look at the <a href="https://grpc.io/docs/quickstart/java/" target="_blank" rel="noopener">starter code for JAVA</a>.</p>
+<p>Our focus is how to: </p>
+<ol>
+<li>Using Envoy proxy as the endpoint for the gRPC service, so that your gRPC service can easily scale. Also, Envoy will act as a gateway to translate from/to <a href="https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-WEB.md" target="_blank" rel="noopener">gRPC-web</a> request that the browsers understand to/from HTTP/2 gRPC request that the backend services understand.</li>
+<li>Utilizing NGINX as the proxy for static files (e.g web pages build by Vue.js) , as well as proxy all the gRPC request to/from Envoy.</li>
+<li>How to use gRPC-web in Web to performance remote call.</li>
+</ol>
+<h2 id="Envoy"><a href="#Envoy" class="headerlink" title="Envoy"></a>Envoy</h2><p>The following image (credit to <a href="https://blog.envoyproxy.io/envoy-and-grpc-web-a-fresh-new-alternative-to-rest-6504ce7eb880" target="_blank" rel="noopener">Envoy and gRPC-Web: a fresh new alternative to REST</a>) shows exactly the role of Envoy as we discussed before.</p>
+<ol>
+<li><p>Load balancing</p>
+<p>Envoy supports <a href="https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/load_balancing/load_balancers#arch-overview-load-balancing-types" target="_blank" rel="noopener">multiple types</a> of load balancing which ensures scalability, performance and fault tolerance of you gRPC services.</p>
+</li>
+<li><p>Translation</p>
+<p>Envoy acts as a proxy between the browser and backend services to translate between gRPC-web and gRPC.</p>
+</li>
+</ol>
+<p><img src="https://miro.medium.com/max/4106/1*mAkZWyRD9gKyBEOaqEFm-A.png" alt="The role of Envoy in a gRPC-Web application"></p>
+<h3 id="Run-Envoy-via-docker"><a href="#Run-Envoy-via-docker" class="headerlink" title="Run Envoy via docker"></a>Run Envoy via docker</h3><p>Assuming the Envoy endpoint is on port 8080 and your gRPC service endpoint is on port 9090.</p>
+<ol>
+<li>Create the Dockerfile</li>
+</ol>
+<figure class="highlight dockerfile hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">FROM</span> envoyproxy/envoy:v1.<span class="hljs-number">14.1</span></span><br><span class="line"><span class="hljs-keyword">COPY</span> envoy.yaml /etc/envoy.yaml</span><br><span class="line">EXPOSE 8080</span><br><span class="line">CMD /usr/local/bin/envoy -c /etc/envoy.yaml</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Create the envoy.yaml</li>
+</ol>
+<figure class="highlight yaml hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-attr">admin:</span></span><br><span class="line"><span class="hljs-attr">  access_log_path:</span> <span class="hljs-string">/tmp/admin_access.log</span></span><br><span class="line"><span class="hljs-attr">  address:</span></span><br><span class="line"><span class="hljs-attr">    socket_address:</span> <span class="hljs-string">&#123;</span> <span class="hljs-attr">address:</span> <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span><span class="hljs-string">,</span> <span class="hljs-attr">port_value:</span> <span class="hljs-number">9901</span> <span class="hljs-string">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">static_resources:</span></span><br><span class="line"><span class="hljs-attr">  listeners:</span></span><br><span class="line"><span class="hljs-attr">    - name:</span> <span class="hljs-string">listener_0</span></span><br><span class="line"><span class="hljs-attr">      address:</span></span><br><span class="line"><span class="hljs-attr">        socket_address:</span> <span class="hljs-string">&#123;</span> <span class="hljs-attr">address:</span> <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span><span class="hljs-string">,</span> <span class="hljs-attr">port_value:</span> <span class="hljs-number">8080</span> <span class="hljs-string">&#125;</span></span><br><span class="line"><span class="hljs-attr">      filter_chains:</span></span><br><span class="line"><span class="hljs-attr">        - filters:</span></span><br><span class="line"><span class="hljs-attr">            - name:</span> <span class="hljs-string">envoy.http_connection_manager</span></span><br><span class="line"><span class="hljs-attr">              config:</span></span><br><span class="line"><span class="hljs-attr">                codec_type:</span> <span class="hljs-string">auto</span></span><br><span class="line"><span class="hljs-attr">                stat_prefix:</span> <span class="hljs-string">ingress_http</span></span><br><span class="line"><span class="hljs-attr">                route_config:</span></span><br><span class="line"><span class="hljs-attr">                  name:</span> <span class="hljs-string">local_route</span></span><br><span class="line"><span class="hljs-attr">                  virtual_hosts:</span></span><br><span class="line"><span class="hljs-attr">                    - name:</span> <span class="hljs-string">local_service</span></span><br><span class="line"><span class="hljs-attr">                      domains:</span> <span class="hljs-string">["*"]</span></span><br><span class="line"><span class="hljs-attr">                      routes:</span></span><br><span class="line"><span class="hljs-attr">                        - match:</span> <span class="hljs-string">&#123;</span> <span class="hljs-attr">prefix:</span> <span class="hljs-string">"/"</span> <span class="hljs-string">&#125;</span></span><br><span class="line"><span class="hljs-attr">                          route:</span></span><br><span class="line"><span class="hljs-attr">                            cluster:</span> <span class="hljs-string">my_service</span></span><br><span class="line"><span class="hljs-attr">                            max_grpc_timeout:</span> <span class="hljs-number">0</span><span class="hljs-string">s</span></span><br><span class="line"><span class="hljs-attr">                      cors:</span></span><br><span class="line"><span class="hljs-attr">                        allow_origin_string_match:</span></span><br><span class="line"><span class="hljs-attr">                          - prefix:</span> <span class="hljs-string">"*"</span></span><br><span class="line"><span class="hljs-attr">                        allow_methods:</span> <span class="hljs-string">GET,</span> <span class="hljs-string">PUT,</span> <span class="hljs-string">DELETE,</span> <span class="hljs-string">POST,</span> <span class="hljs-string">OPTIONS</span></span><br><span class="line"><span class="hljs-attr">                        allow_headers:</span> <span class="hljs-string">keep-alive,user-agent,cache-control,content-type,content-transfer-encoding,custom-header-1,x-accept-content-transfer-encoding,x-accept-response-streaming,x-user-agent,x-grpc-web,grpc-timeout</span></span><br><span class="line"><span class="hljs-attr">                        max_age:</span> <span class="hljs-string">"1728000"</span></span><br><span class="line"><span class="hljs-attr">                        expose_headers:</span> <span class="hljs-string">custom-header-1,grpc-status,grpc-message</span></span><br><span class="line"><span class="hljs-attr">                http_filters:</span></span><br><span class="line"><span class="hljs-attr">                  - name:</span> <span class="hljs-string">envoy.grpc_web</span></span><br><span class="line"><span class="hljs-attr">                  - name:</span> <span class="hljs-string">envoy.cors</span></span><br><span class="line"><span class="hljs-attr">                  - name:</span> <span class="hljs-string">envoy.router</span></span><br><span class="line"><span class="hljs-attr">  clusters:</span></span><br><span class="line"><span class="hljs-attr">    - name:</span> <span class="hljs-string">my_service</span></span><br><span class="line"><span class="hljs-attr">      connect_timeout:</span> <span class="hljs-number">0.25</span><span class="hljs-string">s</span></span><br><span class="line"><span class="hljs-attr">      type:</span> <span class="hljs-string">logical_dns</span></span><br><span class="line"><span class="hljs-attr">      http2_protocol_options:</span> <span class="hljs-string">&#123;&#125;</span></span><br><span class="line"><span class="hljs-attr">      lb_policy:</span> <span class="hljs-string">round_robin</span></span><br><span class="line"><span class="hljs-attr">      hosts:</span> <span class="hljs-string">[&#123;</span> <span class="hljs-attr">socket_address:</span> <span class="hljs-string">&#123;</span> <span class="hljs-attr">address:</span> <span class="hljs-string">localhost,</span> <span class="hljs-attr">port_value:</span> <span class="hljs-number">9090</span> <span class="hljs-string">&#125;&#125;]</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>Build and Run</li>
+</ol>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker build . --tag envoy:v1</span><br><span class="line">docker run -d --restart always --net=<span class="hljs-string">"host"</span> envoy:v1</span><br></pre></td></tr></table></figure>
+<h2 id="NGINX"><a href="#NGINX" class="headerlink" title="NGINX"></a>NGINX</h2><p>Now that your Envoy proxy is running on port 8080, the service should run on <code>/api</code>, which means we should redirect <code>/api/service/myFunction</code> to <code>service/myFunction</code>.</p>
+<figure class="highlight nginx hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-attribute">upstream</span> envoy &#123;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-attribute">server</span> <span class="hljs-number">127.0.0.1:8080</span>;</span><br><span class="line">  <span class="hljs-attribute">keepalive</span> <span class="hljs-number">16</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-section">server</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-attribute">location</span> /api/ &#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-attribute">proxy_http_version</span> <span class="hljs-number">1</span>.<span class="hljs-number">1</span>;</span><br><span class="line">    <span class="hljs-attribute">proxy_pass</span> http://envoy/;</span><br><span class="line">    <span class="hljs-attribute">proxy_set_header</span> Connection <span class="hljs-string">""</span>;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-attribute">location</span> / &#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-attribute">root</span> /var/www/dist/;</span><br><span class="line">    <span class="hljs-attribute">index</span> index.html index.htm;</span><br><span class="line">    <span class="hljs-attribute">try_files</span> <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ /index.html;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>As we can see from above, we will proxy pass <code>/api</code> to the envoy upstream and we will host our static website at <code>/</code></p>
+<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><p>To fully utilize <strong>binary</strong> serialization/deserialization, using <code>protoc</code>  to generate <code>grpc-web</code> instead of <code>grpc-webtext</code>. Also, using <code>dts</code> for type hint is preferred. (or <code>typescript</code> is you prefer Typescript)</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">protoc -I=. service.proto \</span><br><span class="line">--js_out=import_style=commonjs:proto-frontend \</span><br><span class="line">--grpc-web_out=import_style=commonjs+dts,mode=grpcweb:proto-frontend</span><br></pre></td></tr></table></figure>
+<p>It will generate 2 <code>service_pb.js</code> and <code>service_grpc_web_pb.js</code> and 2 corresponding <code>dts</code> file.</p>
+<p>The following example demonstrate how simple it is perform a RPC call.</p>
+<figure class="highlight js hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> &#123;ServicePromiseClient&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"./proto/service_grpc_web_pb"</span></span><br><span class="line"><span class="hljs-keyword">import</span> &#123;MyFucntionRequest&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"@/proto/service_pb"</span>;</span><br><span class="line"><span class="hljs-comment">// initialize your client</span></span><br><span class="line"><span class="hljs-keyword">const</span> client =  <span class="hljs-keyword">new</span> ServicePromiseClient(<span class="hljs-string">"/api"</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>);</span><br><span class="line"><span class="hljs-comment">// build your input</span></span><br><span class="line"><span class="hljs-keyword">const</span> request = <span class="hljs-keyword">new</span> MyFucntionRequest();</span><br><span class="line">request.setName(<span class="hljs-string">"someName"</span>)</span><br><span class="line"><span class="hljs-comment">// call the RPC and wait for the reply</span></span><br><span class="line"><span class="hljs-keyword">const</span> reply = <span class="hljs-keyword">await</span> client.myFunction(request, &#123;&#125;);</span><br><span class="line"><span class="hljs-comment">// now reply is the type MyFucntionReply</span></span><br></pre></td></tr></table></figure>
+<h2 id="Wrap-it-up"><a href="#Wrap-it-up" class="headerlink" title="Wrap it up"></a>Wrap it up</h2><p>When using gRPC, you web client will just call the function as if it is a local function. However, it’s somewhat complicated under the hood. </p>
+<ol>
+<li>The web client first call <code>/api/service/myFunction</code> via HTTP Restful-like call,</li>
+<li>The NGINX server receives it and rewrite the request url as <code>service/myFunction</code> and forward it to Envoy endpoint on port 8080 using HTTP/1.1</li>
+<li>The Envoy proxy receives <code>service/myFunction</code> request, by examining the HTTP header, it’s a gRPC-web request, it translate it to gRPC request format and send the request to the gRPC backend on port 9090 on to perform <code>service</code> with function <code>myFunction</code> using HTTP/2</li>
+<li>Your gRPC backend on port 9090 receives <code>myFunction</code> of <code>service</code> and perform the computation, return the result to Envoy proxy</li>
+<li>The envoy proxy translate it back to gRPC-web in HTTP/1.1 and send the response to NGINX</li>
+<li>The NGINX server forward it to the web client</li>
+<li>The web client receive the response</li>
+</ol>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Protobuf/">Protobuf</a>, <a class="has-link-grey -link" href="/tags/gRPC/">gRPC</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/12/15/Build-Your-Own-Code-Runner/">
+                <span class="level-item">Builder Your Own Code Runner</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
                 
 
 

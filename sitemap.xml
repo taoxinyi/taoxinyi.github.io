@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xinyitao.tech/2019/12/15/Build-Your-Own-Code-Runner/</loc>
+    <loc>https://xinyitao.tech/2020/05/11/Deploy-Service-with-gRPC-Envoy-NGINX/</loc>
     
-    <lastmod>2019-12-16T23:02:29.911Z</lastmod>
+    <lastmod>2020-05-12T00:05:31.993Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://xinyitao.tech/about/index.html</loc>
     
-    <lastmod>2019-12-10T01:15:25.004Z</lastmod>
+    <lastmod>2020-04-28T19:23:34.352Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xinyitao.tech/2018/11/03/Try-iDict-in-Command-Line/</loc>
+    
+    <lastmod>2020-04-28T19:15:12.064Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xinyitao.tech/2019/12/15/Build-Your-Own-Code-Runner/</loc>
+    
+    <lastmod>2019-12-16T23:02:29.911Z</lastmod>
     
   </url>
   
@@ -40,13 +54,6 @@
     <loc>https://xinyitao.tech/2019/01/12/Using-Protobuf-In-Flutter/</loc>
     
     <lastmod>2019-01-12T07:42:00.431Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xinyitao.tech/2018/11/03/Try-iDict-in-Command-Line/</loc>
-    
-    <lastmod>2019-01-12T07:40:36.768Z</lastmod>
     
   </url>
   
